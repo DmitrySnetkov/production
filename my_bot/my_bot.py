@@ -10,7 +10,8 @@ from bot.event import Event
 import json as js
 import loguru as log
 import pathlib as plib
-os.system('cls')
+from settings import TOKEN, chat_id, is_test
+# os.system('cls')
 
 
 # //TODO надо добавить проверку на почтовые ящики, чтобы при ссылке на человека не предлагало
@@ -51,9 +52,6 @@ log.logger.add(str(log_error_path), format="{time} {level} {message}", level="ER
 translate_matrix_1 = str.maketrans(
     '''qwertyuiop[]';lkjhgfdsazxcvbnm,./`@#$^&''', '''йцукенгшщзхъэждлорпавыфячсмитьбю.ё"№;:?'''
 )
-TOKEN = '001.0324809146.1636057883:1011959052'   # мой токен  "001.1746503873.0914461770:1011887048"
-chat_id = "689445373@chat.agent"    # рабочий чат  689445373@chat.agent   689738147@chat.agent
-is_test = False
 json_keys = [
     {"text": "Перевести с клингонского", "callbackData": "button_1"}
     # {"text": "button_2", "callbackData": "button_2"},
