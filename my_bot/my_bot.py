@@ -1,10 +1,14 @@
 from bot.bot import Bot
 import time
-from bot.handler import MessageHandler, BotButtonCommandHandler
-from settings import TOKEN, chat_id, is_test
+from bot.handler import MessageHandler, BotButtonCommandHandler, CommandHandler
+from settings import TOKEN, chat_id, is_test, bot
 import my_heandlers.my_message_hendlers as mmh
 import my_heandlers.my_button_hendlers as mbh
 from my_log import log
+import multiprocessing as mp
+import worker as wr
+# import utils.utils  as ut
+import my_heandlers.my_command_hendlers as mch
 
 
 def check_settings(tab: int = 2) -> None:
@@ -22,9 +26,18 @@ def check_settings(tab: int = 2) -> None:
 
 
 def main() -> None:
-    bot = Bot(token=TOKEN)
-    bot.dispatcher.add_handler(MessageHandler(callback=mmh.message_cb))
+    bot.dispatcher.add_handler(CommandHandler(command="weather", callback=mch.send_weather_in_chat))
     bot.dispatcher.add_handler(BotButtonCommandHandler(callback=mbh.button_cb))
+    bot.dispatcher.add_handler(MessageHandler(filters= lambda event: not event.data['text'].startswith('/'), callback=mmh.message_cb))
+
+    scheduler_process = mp.Process(
+        daemon=True,
+        name="scheduler_process",
+        target=wr.scheduler_main_loop,
+        args=(wr.worker_queue,),
+    )
+    scheduler_process.start()
+    print({"bot":bot})
     print("Бот запущен")
     bot.start_polling()
     bot.idle()
@@ -37,7 +50,6 @@ if __name__ == "__main__":
     except Exception as error:
         # log.logger.error(error)
         print(f"Ошибка - {error}")
-
 
 
 # # //TODO надо добавить проверку на почтовые ящики, чтобы при ссылке на человека не предлагало
