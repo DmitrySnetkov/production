@@ -22,7 +22,8 @@ worker_queue = mp.Queue(50)
 def scheduler_main_loop(queue: mp.Queue):
     while True:
         if data := queue.get():
-            print(f"Задание с типом {data.type}")
+            # print(f"Задание с типом {data.type}")
+            log.logger.info(f"Задание с типом {data.type}")
             match data.type:
                 case type if type in Worker_type:
                     try:

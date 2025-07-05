@@ -37,7 +37,7 @@ def main() -> None:
         args=(wr.worker_queue,),
     )
     scheduler_process.start()
-    print({"bot":bot})
+
     print("Бот запущен")
     bot.start_polling()
     bot.idle()
