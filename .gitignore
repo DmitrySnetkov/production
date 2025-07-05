@@ -1,0 +1,5 @@
+my_bot/settings.py
+my_bot/test.py
+__pycache__
+my_bot/log/*
+my_bot/files/image/*
