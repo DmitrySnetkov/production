@@ -27,6 +27,7 @@ def check_settings(tab: int = 2) -> None:
 
 def main() -> None:
     bot.dispatcher.add_handler(CommandHandler(command="weather", callback=mch.send_weather_in_chat))
+    bot.dispatcher.add_handler(CommandHandler(command="traffic", callback=mch.send_traffic_in_chat))
     bot.dispatcher.add_handler(BotButtonCommandHandler(callback=mbh.button_cb))
     bot.dispatcher.add_handler(MessageHandler(filters= lambda event: not event.data['text'].startswith('/'), callback=mmh.message_cb))
 

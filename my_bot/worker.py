@@ -8,6 +8,7 @@ class Worker_type(enum.Enum):
     get_weather  = 1  # получение погоды
     send_weather = 2  # отправка погоды в чат
     cut_image    = 3  # обрезать изображение
+    send_trffic  = 4  # отправить дорожный трафик
 
 
 class Worker_data(NamedTuple):
