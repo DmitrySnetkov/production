@@ -26,7 +26,7 @@ def send_traffic():
 
     browser_page_screen_shot(file_name=file_name, url=url)
     send_file_to_chat(bot=bot, file_name=file_name, chat_id=chat_id)
-    bot.send_text(chat_id=chat_id, text=url)
+    # bot.send_text(chat_id=chat_id, text=url)
 
 
 def send_weather_in_chat(bot: Bot, event: Event) -> None:
