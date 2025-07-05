@@ -4,7 +4,7 @@ import time
 
 
 def browser_page_screen_shot(
-    file_name: str = "screenshot.png",
+    file_name: str = "my_bot/files/image/screenshot.png",
     url: str = "https://yandex.ru/pogoda/ru/krasnodar?lat=45.03547&lon=38.975313",
     time_sleep: int = 5,
 ) -> None:

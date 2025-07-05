@@ -11,8 +11,8 @@ from settings import bot
 
 def send_weather():
     global bot
-    file_name = "weather_image_source.png"
-    new_file_name = "cut_image.png"
+    file_name = "my_bot/files/image/weather_image_source.png"
+    new_file_name = "my_bot/files/image/cut_image.png"
 
     browser_page_screen_shot(file_name=file_name)
     imut.image_cut(file_name_old=file_name, file_name_new=new_file_name)
