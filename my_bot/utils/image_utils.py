@@ -4,12 +4,12 @@ import cv2 as cv
 def image_cut(
     file_name_old: str,
     file_name_new: str,
-    frames: tuple[tuple[int, int], tuple[int, int]] = ((125,1250), (570, 2220)),
+    frames: tuple[tuple[int, int], tuple[int, int]] = ((110,1300), (640, 2200)),
     is_markup: bool = False,
 ) -> None:
     '''
         Фукнция обрезает изображение по указанным координатам левого верхнего и нежнего правого угла,
-        is_markup - режим разметки изображения, выделяет указанную область, не сохраняет новое изображение.((y1,x1)(y2,x2))
+        is_markup - режим разметки изображения, выделяет указанную область, не сохраняет новое изображение.((y1,y2)(x1,x2))
         file_name_old - файл источник
         file_name_new - новый обрезанный файл
     '''
@@ -39,5 +39,4 @@ def image_cut(
 
 if __name__ == '__main__':
     'Для тестирования'
-    # image_cut(file_name_old="screenshot.png", file_name_new='new.png', is_markup=False)
-    pass
+    image_cut(file_name_old="file.png", file_name_new='new.png', is_markup=True)
