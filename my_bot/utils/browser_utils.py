@@ -31,12 +31,15 @@ def browser_page_screen_shot(
 
     match click_type:
         case ClickType.traffick_click_1:
-            driver.find_element(
-                By.XPATH, "/html/body/div[1]/div[2]/div[8]/div/span"
-            ).click()
+            try:
+                driver.find_element(
+                    By.XPATH, "/html/body/div[1]/div[2]/div[8]/div/span"
+                ).click()
+                time.sleep(0.3)
+            except:
+                print("кнопка не найдена")
         case _:
             pass
-    time.sleep(0.3)
     driver.save_screenshot(file_name)
     driver.quit()
 
