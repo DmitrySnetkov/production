@@ -65,14 +65,14 @@ def send_evening_newsletter_in_chat(is_send_message:bool = False):
         raise Exception(error_message + " " + str(error))
 
 
-def send_weather_in_chat(bot: Bot | None = None, event: Event | None = None, worker_queue= None) -> None:
+def send_weather_in_chat(bot: Bot | None = None, event: Event | None = None) -> None:
     """отправка погоды в чат через очередь"""
     worker_queue.put(  # отправка погоды в чат
         Worker_data(Worker_type.send_weather, send_weather, None)
     )
 
 
-def send_traffic_in_chat(bot: Bot | None = None, event: Event | None = None, worker_queue= None) -> None:
+def send_traffic_in_chat(bot: Bot | None = None, event: Event | None = None) -> None:
     """отправка пробок в чат через очередь"""
     worker_queue.put(  # отправка погоды в чат
         Worker_data(Worker_type.send_trffic, send_traffic, None)
