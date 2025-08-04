@@ -28,5 +28,6 @@ def check_send_keybord(text: str, percent: float = 0.7) -> bool:
 
 
 def send_file_to_chat(bot: Bot, file_name: str, chat_id: str):
+    print('send_file_to_chat')
     with open(file_name, "rb") as file:
         bot.send_file(chat_id=chat_id, file=file)

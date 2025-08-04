@@ -4,3 +4,4 @@ __pycache__
 my_bot/log/*
 my_bot/files/image/*
 /*.png
+venv

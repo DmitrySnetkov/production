@@ -37,7 +37,7 @@ def main() -> None:
     worker_process = mp.Process(
         daemon=True,
         name="worker_process",
-        target=wr.worker_main_loop,
+        target=wr.main,
         args=(wr.worker_queue,),
     )
     worker_process.start()
@@ -73,3 +73,5 @@ if __name__ == "__main__":
 # #       предлагал перевод к сообщениям, которые были написаны до старта бота
 # # //TODO добавить в логи то с какими настройками стартовал бот(обрезать токен до последних
 # #       нескольких цифр)
+
+# TODO надо сделать распознаватель текста на мемах или апскеилер

@@ -9,17 +9,16 @@ import functools as fnt
 def end_day_send(queue:mp.Queue):
     # print('end_day_send')
     # print(queue)
-    # ch.send_weather_in_chat(worker_queue=queue)
-    # ch.send_traffic_in_chat(worker_queue=queue)
     ch.evening_newsletter(worker_queue=queue)
 
 
 def scheduler_main(queue:mp.Queue):
     fn = fnt.partial(end_day_send, queue = queue)
 
-    sch.every().minute.at(":05").do(fn)
+    # sch.every().minute.at(":05").do(fn)
 
     while True:
+        #проверка на время, и пауза на час при необходимости
         try:
             sch.run_pending()
             time.sleep(1)
