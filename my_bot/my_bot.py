@@ -4,7 +4,7 @@ from bot.handler import MessageHandler, BotButtonCommandHandler, CommandHandler
 from settings import TOKEN, chat_id, is_test, bot
 import my_heandlers.my_message_hendlers as mmh
 import my_heandlers.my_button_hendlers as mbh
-from my_log import log
+# from my_log import log
 import multiprocessing as mp
 import worker as wr
 import my_heandlers.my_command_hendlers as mch

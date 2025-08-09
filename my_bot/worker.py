@@ -1,7 +1,7 @@
 import multiprocessing as mp
 import enum
 from typing import NamedTuple, Callable
-from my_log import log
+# from my_log import log
 
 
 class Worker_type(enum.Enum):

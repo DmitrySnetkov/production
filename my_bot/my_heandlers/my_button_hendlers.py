@@ -1,6 +1,6 @@
 from bot.bot import Bot
 from bot.event import Event
-from my_log import log
+# from my_log import log
 import datetime as dt
 from settings import chat_id
 
@@ -11,7 +11,7 @@ translate_matrix_1 = str.maketrans(
 
 
 def button_cb(bot: Bot, event: Event) -> None:
-    log.logger.info(event)
+    # log.logger.info(event)
     time_start = dt.datetime.now()
     match str(event.data["callbackData"]):
         case "button_1":
@@ -24,12 +24,12 @@ def button_cb(bot: Bot, event: Event) -> None:
             bot.answer_callback_query(
                 query_id=event.data["queryId"], text="Переведено", show_alert=False
             )
-            log.logger.info("переведено")
+            # log.logger.info("переведено")
         case _:
-            log.logger.info("Неизвестная кнопка или не реализован обработчик кнопки")
+            # log.logger.info("Неизвестная кнопка или не реализован обработчик кнопки")
             bot.answer_callback_query(
                 query_id=event.data["queryId"],
                 text="Неизвестная кнопка или не реализован обработчик кнопки",
                 show_alert=False,
             )
-    log.logger.info(f"обработка запроса заняла: {dt.datetime.now() - time_start}")
+    # log.logger.info(f"обработка запроса заняла: {dt.datetime.now() - time_start}")
