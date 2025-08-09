@@ -26,3 +26,4 @@ def message_cb(bot: Bot, event: Event) -> None:
         # log.logger.info("предложен перевод")
     else:
         # log.logger.info("перевод не требуется")
+        pass
