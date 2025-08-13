@@ -5,7 +5,7 @@ from worker import worker_queue, Worker_data, Worker_type
 # from utils.browser_utils import browser_page_screen_shot, ClickType
 from settings import chat_id, bot
 from utils.utils import send_file_to_chat
-import requests as req
+# import requests as req
 import enum
 import aiohttp
 import time
@@ -19,8 +19,8 @@ class ClickType(enum.Enum):
 async def send_weather(is_send_message:bool = False):
     print('send_weather')
     global bot
-    file_name = "production/my_bot/files/image/weather_image_source_" + str(time.monotonic_ns())  + ".png"
-    new_file_name = "production/my_bot/files/image/cut_image_" + str(time.monotonic_ns()) + ".png"
+    file_name = "files/image/weather_image_source_" + str(time.monotonic_ns())  + ".png"
+    new_file_name = "files/image/cut_image_" + str(time.monotonic_ns()) + ".png"
     url = "https://yandex.ru/pogoda/ru/krasnodar?lat=45.03547&lon=38.975313"
     # timeout = aiohttp.ClientTimeout(1)
     try:
@@ -56,7 +56,7 @@ async def send_weather(is_send_message:bool = False):
 async def send_traffic(is_send_message:bool = False):
     print('send_traffic')
     global bot
-    file_name = "production/my_bot/files/image/traffic_image_source.png"
+    file_name = "files/image/traffic_image_source.png"
     url = "https://yandex.ru/maps/35/krasnodar/house/ulitsa_budyonnogo_2/Z0EYfwJjTEcOQFpvfXxydnhqYg==/?l=trf%2Ctrfe%2Cmasstransit&ll=38.963987%2C45.039967&z=15.8"
     try:
         async with aiohttp.ClientSession() as session:
@@ -84,10 +84,10 @@ async def send_traffic(is_send_message:bool = False):
 
 async def send_evening_newsletter_in_chat(is_send_message:bool = False):
     global bot
-    weather_file_name = "production/my_bot/files/image/weather_image_source.png"
-    weather_new_file_name = "production/my_bot/files/image/cut_image.png"
+    weather_file_name = "files/image/weather_image_source.png"
+    weather_new_file_name = "files/image/cut_image.png"
     weather_url = "https://yandex.ru/pogoda/ru/krasnodar?lat=45.03547&lon=38.975313"
-    traffic_file_name = "production/my_bot/files/image/traffic_image_source.png"
+    traffic_file_name = "files/image/traffic_image_source.png"
     traffic_url = "https://yandex.ru/maps/35/krasnodar/house/ulitsa_budyonnogo_2/Z0EYfwJjTEcOQFpvfXxydnhqYg==/?l=trf%2Ctrfe%2Cmasstransit&ll=38.963987%2C45.039967&z=15.8"
 
     try:

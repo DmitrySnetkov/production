@@ -16,6 +16,9 @@ def scheduler_main(queue:mp.Queue):
     fn = fnt.partial(end_day_send, queue = queue)
 
     # sch.every().minute.at(":05").do(fn)
+    sch.every().day.at("17:50:00").do(fn)
+    # sch.every().day.at("00:30:00").do(fn)
+
 
     while True:
         #проверка на время, и пауза на час при необходимости

@@ -1,3 +1,14 @@
+# /// script
+# requires-python = "==3.10"
+# dependencies = [
+#   "asyncio",
+#   "mailru-im-bot",
+#   "schedule",
+#   "opencv-python",
+#   "aiohttp"
+# ]
+# ///
+
 from bot.bot import Bot
 import time
 from bot.handler import MessageHandler, BotButtonCommandHandler, CommandHandler
