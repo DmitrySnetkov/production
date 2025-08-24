@@ -1,31 +1,34 @@
-import f
+import utils as utils
+import art
+import os
+import pathlib as plib
+import tabulate as tab
 
+os.system("cls")
+art.tprint("CLIENT  MANAGER")
 
-print('Вводите команды для работы с менеджером клиентов')
-is_loop = True
+root_path = plib.Path(__file__).parent
+dir_list = utils.client_list_get(root_path=root_path) #получение все скачаных клиентов
 
+if not dir_list:
+    print('На вашем комьпьютере не найдено ни одного клиента PharmNet')
+else:
+    tab_list = utils.tab_client_print(dir_list)
 
+print('\n')
+utils.command_list_print()
 
 while True:
     command = input()
     try:
         match command:
-            case t if t.strip().startswith('add'):
-                print('add')
-                f.f_add(r'C:\Users\User\Desktop\программирование\production\production')
-            case t if t.strip().startswith('update all'):
-                print('update all')
-            case t if t.strip().startswith('update'):
-                print('update')
-                f.f_add(r'C:\Users\User\Desktop\программирование\production\production')
-            # case t if t.strip().startswith('copy'):
-            #     print('copy')
-            case t if t.strip().startswith('delete'):
-                print('delete')
-            case t if t.strip().startswith('run'):
-                print('run')
-            case t if t.strip().startswith('exit'):
-                print('exit')
+            case t if not t.strip():
+                continue
+            case t if com:=utils.check_exists_command(command): #комманда найдена
+                print(' '*4+f'Комманда найдена {com}')
+                com.func(command, root_path)
+            case t if t.strip().startswith(('exit', 'close')):
+                print('Выход')
                 exit()
             case _:
                 print("Неизвестная комманда")
