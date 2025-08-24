@@ -6,6 +6,7 @@ import pytest as pt
 import dataclasses as dt
 import tabulate as tab
 import json
+import re
 
 class CheckType(enum.Enum):
     update = 1
