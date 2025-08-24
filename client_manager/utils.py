@@ -207,7 +207,7 @@ def client_list_get(root_path:plib.Path) -> tuple[plib.Path]:
     """Возвращает tuple(pathlib.Path) папок находящихся по пути root_path и являющихся только клиентами pharm_net"""
     if not root_path.exists() or root_path == plib.Path('.'):
         raise Exception ('Путь не найден')
-    x = tuple(sorted((i for i in root_path.iterdir() if i.is_dir()), key =  lambda i: i.name))
+    x = tuple(sorted((i for i in root_path.iterdir() if i.is_dir() and re.match('^\d+-', i.name)), key =  lambda i: i.name))
     return x #надо добавить проверку на названия папки, чтобы отборажало только папки клиентов
 
 

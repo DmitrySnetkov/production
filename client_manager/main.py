@@ -25,7 +25,7 @@ while True:
             case t if not t.strip():
                 continue
             case t if com:=utils.check_exists_command(command): #комманда найдена
-                print(' '*4+f'Комманда найдена {com}')
+                # print(' '*4+f'Комманда найдена {com}')
                 com.func(command, root_path)
             case t if t.strip().startswith(('exit', 'close')):
                 print('Выход')
